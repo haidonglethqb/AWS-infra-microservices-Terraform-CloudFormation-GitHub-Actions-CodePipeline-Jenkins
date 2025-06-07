@@ -9,6 +9,9 @@ jobs:
   terraform:
     name: 'Terraform Plan & Apply'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: infrastructure
     env:
       AWS_REGION: 'us-east-1'
     steps:
@@ -37,9 +40,9 @@ jobs:
       - name: Run Checkov (Security & Compliance scan)
         uses: bridgecrewio/checkov-action@v12
         with:
-          directory: .
+          directory: infrastructure
           quiet: false
-          soft_fail: true  # Dù phát hiện issue vẫn không làm ngừng workflow
+          soft_fail: true
 
       - name: Terraform Plan
         run: terraform plan
