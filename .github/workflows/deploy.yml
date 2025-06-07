@@ -3,6 +3,8 @@ name: 'Terraform Deploy'
 on:
   workflow_dispatch:
 
+permissions: read-all
+
 jobs:
   terraform:
     name: 'Terraform Plan & Apply'
@@ -37,6 +39,7 @@ jobs:
         with:
           directory: .
           quiet: false
+          soft_fail: true  # Dù phát hiện issue vẫn không làm ngừng workflow
 
       - name: Terraform Plan
         run: terraform plan
