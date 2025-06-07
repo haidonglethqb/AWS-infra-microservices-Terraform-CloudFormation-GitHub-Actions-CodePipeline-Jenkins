@@ -16,8 +16,9 @@ jobs:
 
       - name: Create S3 Bucket
         run: |
-          aws s3api create-bucket --bucket bucketlab3 --region us-east-1 || true
-          aws s3api put-bucket-versioning --bucket bucketlab3 --versioning-configuration Status=Enabled
+          aws s3api create-bucket --bucket bucketlab3-2112345 --region us-east-1 || true
+          aws s3api put-bucket-versioning --bucket bucketlab3-2112345 --versioning-configuration Status=Enabled
+
 
       - name: Create DynamoDB Table
         run: |

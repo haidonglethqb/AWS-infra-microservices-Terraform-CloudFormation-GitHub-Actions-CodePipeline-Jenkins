@@ -13,7 +13,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "bucketlab3"
+    bucket         = "bucketlab3-2112345"
     key            = "state/terraform.tfstate"
     region         = "us-east-1"
     dynamodb_table = "terraform-lock-table"
