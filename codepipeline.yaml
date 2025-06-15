@@ -118,5 +118,6 @@ Resources:
                 ActionMode: CREATE_UPDATE
                 StackName: !Ref StackName
                 Capabilities: CAPABILITY_NAMED_IAM
-                TemplatePath: BuildOutput::!Ref CFNTemplateFile
+                TemplatePath: !Sub BuildOutput::${CFNTemplateFile}
+                RoleArn: !GetAtt PipelineRole.Arn
               RunOrder: 1
