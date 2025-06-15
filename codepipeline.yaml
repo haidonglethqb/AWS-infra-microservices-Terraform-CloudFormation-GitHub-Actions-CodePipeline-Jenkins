@@ -33,7 +33,7 @@ Resources:
               Service: codebuild.amazonaws.com
             Action: sts:AssumeRole
       ManagedPolicyArns:
-        - arn:aws:iam::aws:policy/AdministratorAccess # Tối ưu sau có thể giảm quyền
+        - arn:aws:iam::aws:policy/AdministratorAccess
 
   CodeBuildProject:
     Type: AWS::CodeBuild::Project
@@ -41,8 +41,7 @@ Resources:
       Name: CFN-Build-Project
       ServiceRole: !GetAtt CodeBuildRole.Arn
       Source:
-        Type: CODECOMMIT
-        Location: !Sub "https://git-codecommit.${AWS::Region}.amazonaws.com/v1/repos/${RepoName}"
+        Type: CODEPIPELINE
       Artifacts:
         Type: CODEPIPELINE
       Environment:
